@@ -1,23 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import ProductForm from './features/Product/ProductForm';
+import { DepsProvider } from './context/DepContext';
+import { ProductService } from './services/ProductService';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DepsProvider services={{productService: ProductService()}}>
+        <ProductForm></ProductForm>
+      </DepsProvider>
     </div>
   );
 }
